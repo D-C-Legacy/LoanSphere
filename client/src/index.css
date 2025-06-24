@@ -1,0 +1,283 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LoanSphere Frontend Fixes - Addressing all tester feedback */
+@layer base {
+  /* Consistent padding and margins for all screen sizes */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Fix button baseline alignment issues */
+  .btn-group {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  
+  .btn-group > * {
+    align-self: baseline;
+  }
+  
+  /* Consistent button styling throughout */
+  .btn-primary {
+    background: linear-gradient(to right, hsl(142, 71%, 45%), hsl(142, 60%, 35%));
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(to right, hsl(142, 60%, 35%), hsl(142, 71%, 45%));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  /* Fix uneven spacing issues */
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-spacing {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-spacing {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+}
+
+/* Custom CSS for enhanced mobile responsiveness */
+@layer base {
+  /* Add extra small breakpoint */
+  .xs\:inline {
+    display: inline;
+  }
+  .xs\:hidden {
+    display: none;
+  }
+  
+  @media (min-width: 475px) {
+    .xs\:inline {
+      display: inline;
+    }
+    .xs\:hidden {
+      display: inline;
+    }
+  }
+
+  /* Enhanced touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(142, 71%, 45%);
+    outline-offset: 2px;
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  /* Enhanced gradients */
+  .bg-gradient-loansphere {
+    background: linear-gradient(135deg, hsl(142, 71%, 45%) 0%, hsl(142, 71%, 40%) 100%);
+  }
+
+  /* Mobile-optimized spacing */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+/* LoanSphere Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* LoanSphere Brand Colors */
+    --primary: 120 60% 35%; /* Veg Green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 48 88% 55%; /* Mustard Yellow */
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 48 88% 55%; /* Mustard Yellow */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 120 60% 35%;
+
+    --radius: 0.5rem;
+
+    /* Custom LoanSphere Colors */
+    --loansphere-green: 120 60% 35%;
+    --loansphere-yellow: 48 88% 55%;
+    --loansphere-dark: 0 0% 10%;
+    --loansphere-light: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 120 60% 40%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 48 88% 50%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 48 88% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 120 60% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .gradient-loansphere {
+    background: linear-gradient(135deg, hsl(var(--loansphere-green)), hsl(var(--loansphere-yellow)));
+  }
+  
+  .text-loansphere-green {
+    color: hsl(var(--loansphere-green));
+  }
+  
+  .text-loansphere-yellow {
+    color: hsl(var(--loansphere-yellow));
+  }
+  
+  .bg-loansphere-green {
+    background-color: hsl(var(--loansphere-green));
+  }
+  
+  .bg-loansphere-yellow {
+    background-color: hsl(var(--loansphere-yellow));
+  }
+  
+  .bg-loansphere-dark {
+    background-color: hsl(var(--loansphere-dark));
+  }
+
+  .bg-loansphere-light {
+    background-color: hsl(var(--loansphere-light));
+  }
+  
+  .border-loansphere-green {
+    border-color: hsl(var(--loansphere-green));
+  }
+
+  .border-loansphere-yellow {
+    border-color: hsl(var(--loansphere-yellow));
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

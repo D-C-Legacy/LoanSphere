@@ -1,0 +1,181 @@
+ 
+
+# Updated Replit Prompt: Configuring Clerk for Loansphere's Multi-Role System
+
+Since you already have the Loansphere system built, here's how to properly configure Clerk authentication for your specific user roles: Super Admin, Lender, Borrower, Platform Investor, Lender Investor, and Distributor.
+
+## Updated Types for Your User Roles
+
+```typescript
+export type Roles = 'super_admin' | 'lender' | 'borrower' | 'platform_investor' | 'lender_investor' | 'distributor'
+
+declare global {
+  interface CustomJwtSessionClaims {
+    metadata: {
+      role?: Roles
+      affiliateCode?: string
+      investorType?: 'platform' | 'lender'
+    }
+  }
+}
+```
+
+## Updated Middleware for Your Dashboards
+
+```typescript
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server'
+
+const isSuperAdminRoute = createRouteMatcher(['/super-admin(.*)'])
+const isLenderRoute = createRouteMatcher(['/lender(.*)'])
+const isBorrowerRoute = createRouteMatcher(['/borrower(.*)'])
+const isPlatformInvestorRoute = createRouteMatcher(['/platform-investor(.*)'])
+const isLenderInvestorRoute = createRouteMatcher(['/lender-investor(.*)'])
+const isDistributorRoute = createRouteMatcher(['/distributor(.*)'])
+
+export default clerkMiddleware(async (auth, req) => {
+  const { sessionClaims } = await auth()
+  const userRole = sessionClaims?.metadata?.role
+
+  if (isSuperAdminRoute(req) && userRole !== 'super_admin') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+  
+  if (isLenderRoute(req) && userRole !== 'lender') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+  
+  if (isBorrowerRoute(req) && userRole !== 'borrower') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+  
+  if (isPlatformInvestorRoute(req) && userRole !== 'platform_investor') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+  
+  if (isLenderInvestorRoute(req) && userRole !== 'lender_investor') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+  
+  if (isDistributorRoute(req) && userRole !== 'distributor') {
+    return NextResponse.redirect(new URL('/', req.url))
+  }
+})
+```
+
+## Role Management for Your System
+
+```typescript
+'use server'
+
+import { checkRole } from '@/utils/roles'
+import { clerkClient } from '@clerk/nextjs/server'
+
+export async function setRole(formData: FormData) {
+  const client = await clerkClient()
+
+  if (!checkRole('super_admin')) {
+    return { message: 'Not Authorized' }
+  }
+
+  const role = formData.get('role') as string
+  const userId = formData.get('id') as string
+  const affiliateCode = formData.get('affiliateCode') as string
+  const investorType = formData.get('investorType') as string
+
+  try {
+    const metadata: any = { role }
+    
+    // Add affiliate code for distributors
+    if (role === 'distributor' && affiliateCode) {
+      metadata.affiliateCode = affiliateCode
+    }
+    
+    // Add investor type for investors
+    if ((role === 'platform_investor' || role === 'lender_investor') && investorType) {
+      metadata.investorType = investorType
+    }
+
+    const res = await client.users.updateUserMetadata(userId, {
+      publicMetadata: metadata
+    })
+    return { message: res.publicMetadata }
+  } catch (err) {
+    return { message: err }
+  }
+}
+```
+
+## Dashboard Access Helpers
+
+```typescript
+import { useUser } from '@clerk/nextjs'
+
+export function useUserRole() {
+  const { user } = useUser()
+  return {
+    role: user?.publicMetadata?.role as Roles,
+    affiliateCode: user?.publicMetadata?.affiliateCode as string,
+    investorType: user?.publicMetadata?.investorType as 'platform' | 'lender',
+    isSuperAdmin: user?.publicMetadata?.role === 'super_admin',
+    isLender: user?.publicMetadata?.role === 'lender',
+    isBorrower: user?.publicMetadata?.role === 'borrower',
+    isPlatformInvestor: user?.publicMetadata?.role === 'platform_investor',
+    isLenderInvestor: user?.publicMetadata?.role === 'lender_investor',
+    isDistributor: user?.publicMetadata?.role === 'distributor',
+  }
+}
+```
+
+## Clerk Dashboard Configuration
+
+1. **Session Token Configuration**: In Clerk Dashboard → Sessions → Customize session token:
+```json
+{
+  "metadata": "{{user.public_metadata}}"
+}
+```
+
+2. **User Metadata Structure**: For each user type, set public metadata like:
+
+**Super Admin:**
+```json
+{
+  "role": "super_admin"
+}
+```
+
+**Distributor:**
+```json
+{
+  "role": "distributor",
+  "affiliateCode": "DIST001"
+}
+```
+
+**Platform Investor:**
+```json
+{
+  "role": "platform_investor",
+  "investorType": "platform"
+}
+```
+
+**Lender Investor:**
+```json
+{
+  "role": "lender_investor",
+  "investorType": "lender"
+}
+```
+
+## Role-Specific Features
+
+- **Super Admin**: Full system control, user management, platform analytics
+- **Lender**: Loan management, borrower communication, investor relations
+- **Borrower**: Application submission, document upload, payment tracking
+- **Platform Investor**: Investment in Loansphere growth, platform metrics
+- **Lender Investor**: Investment in specific lenders, lender performance data
+- **Distributor**: Affiliate management, commission tracking, plan resale tools
+
+This configuration properly handles your existing Loansphere user structure with Clerk's authentication and role-based access control system  [(1)](https://clerk.com/blog/nextjs-role-based-access-control) .

@@ -1,0 +1,140 @@
+ Let me provide you with the correct fixes for your Loansphere authentication issues based on Clerk's documentation.
+
+## Fix 1: Ensure ClerkProvider is Properly Set Up
+
+First, make sure your root layout has `<ClerkProvider>` wrapping your entire app  [(1)](https://clerk.com/docs/references/nextjs/errors/auth-was-called#why-this-error-occurs) :
+
+```javascript
+import { ClerkProvider } from '@clerk/nextjs'
+import './globals.css'
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+  )
+}
+```
+
+
+## Fix 2: Correct AuthModal Component
+
+Replace your AuthModal with proper Clerk hooks. The `useAuth()` hook provides access to authentication state  [(2)](https://clerk.com/docs/hooks/use-auth) :
+
+```javascript
+"use client";
+
+import { useAuth } from "@clerk/nextjs";
+
+export default function AuthModal() {
+  const { userId, sessionId, getToken, isLoaded, isSignedIn } = useAuth();
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isSignedIn) {
+    return <div>Sign in to view this page</div>;
+  }
+
+  return (
+    <div>
+      <p>
+        Hello, {userId}! Your current active session is {sessionId}.
+      </p>
+    </div>
+  );
+}
+```
+
+
+## Fix 3: Updated ManualPaymentModal
+
+For the ManualPaymentModal, use the proper Clerk authentication pattern:
+
+```javascript
+"use client";
+
+import { useAuth } from "@clerk/nextjs";
+
+export default function ManualPaymentModal() {
+  const { userId, sessionId, getToken, isLoaded, isSignedIn } = useAuth();
+
+  const fetchExternalData = async () => {
+    const token = await getToken();
+
+    // Fetch data from an external API
+    const response = await fetch("https://api.example.com/data", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.json();
+  };
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isSignedIn) {
+    return <div>Sign in to view this page</div>;
+  }
+
+  return (
+    <div>
+      <p>
+        Hello, {userId}! Your current active session is {sessionId}.
+      </p>
+      <button onClick={fetchExternalData}>Fetch Data</button>
+    </div>
+  );
+}
+```
+
+
+## Fix 4: Check Middleware Configuration
+
+Ensure your middleware is properly configured. The error "auth() was called but Clerk can't detect usage of clerkMiddleware()" occurs when `clerkMiddleware()` isn't running on the request  [(1)](https://clerk.com/docs/references/nextjs/errors/auth-was-called#why-this-error-occurs) :
+
+```javascript
+import { clerkMiddleware } from '@clerk/nextjs/server'
+
+export default clerkMiddleware()
+
+export const config = {
+  matcher: [
+    '/((?!.*\\..*|_next).*)', // Don't run middleware on static files
+    '/', // Run middleware on index page
+    '/(api|trpc)(.*)', // Run middleware on API routes
+  ],
+}
+```
+
+
+## Fix 5: Server-Side Authentication
+
+For server components, use the `auth()` helper instead of `useAuth()`  [(3)](https://clerk.com/docs/references/nextjs/auth) :
+
+```javascript
+import { auth, currentUser } from '@clerk/nextjs/server'
+
+export default async function Page() {
+  const { userId } = await auth()
+  console.log(userId)
+
+  return <p>Home Page</p>
+}
+```
+
+
+These fixes should resolve your authentication errors and properly integrate Clerk with your Loansphere application.

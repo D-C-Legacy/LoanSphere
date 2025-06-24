@@ -1,0 +1,73 @@
+Here’s a **focused breakdown of the Lender Dashboard and its core modules**, designed for Zambian lending businesses (civil servant loans, microfinance, etc.) with actionable features:
+
+---
+
+### **📌 Lender Dashboard Core Modules**  
+*(Tailored for Zambian lending workflows)*  
+
+#### **1. Loan Portfolio Overview**  
+- **Active Loans Summary**: Total disbursed, repaid, overdue (ZMW).  
+- **Quick Metrics**: Default rate, avg. loan size, top-performing loan products.  
+- **Geographic Heatmap**: Show loans by region (Lusaka, Copperbelt, etc.).  
+
+#### **2. Loan Product Management**  
+- **Create Loan Products**:  
+  - Civil servant loans  
+  - Plot/land loans  
+  - Collateral-based loans  
+  - "Daily loans" (short-term)  
+- **Customizable Terms**:  
+  - Interest rates (flat/reducing balance)  
+  - Fees (processing, late fees)  
+  - Grace periods  
+
+#### **3. Borrower Applications**  
+- **Application Queue**: New → Under Review → Approved/Rejected.  
+- **KYC Verification**:  
+  - NRC scans (auto-validate via gov’t API).  
+  - Payslip/employment verification (for civil servants).  
+- **Auto-Approval Rules**:  
+  - Example: "Auto-approve if salary > K5,000 and NRC valid."  
+
+#### **4. Disbursement & Repayments**  
+- **One-Click Disbursement**:  
+  - Direct to mobile money (MTN, Airtel) or bank.  
+- **Repayment Tracking**:  
+  - Schedule with SMS reminders ("Repay K500 by 25/05").  
+  - Mobile money collections (USSD shortcuts).  
+
+#### **5. Collections & Delinquency**  
+- **Overdue Loans List**: Days overdue, amount, contact.  
+- **Collection Tools**:  
+  - Assign to field agents.  
+  - Payment rescheduling ("Restructure loan #123").  
+
+#### **6. Investor Relations (For Premium Lenders)**  
+- **Funding Dashboard**:  
+  - Show investors backing your loans.  
+  - ROI reports for investors.  
+- **Payout Automation**:  
+  - Investor dividends (weekly/monthly).  
+
+#### **7. Reports & Compliance**  
+- **Regulatory Reports**:  
+  - Bank of Zambia (BoZ) compliance templates.  
+- **Portfolio Health**:  
+  - NPL (Non-Performing Loan) ratios.  
+  - Cash flow projections.  
+
+---
+
+### **🔧 Zambia-Specific Features**  
+- **Mobile Money Integration**: MTN/Zamtel/Airtel APIs for repayments.  
+- **Civil Servant Deductions**: Integration with gov’t payroll systems.  
+- **Localized Docs**: NRC, TPIN, land title support.  
+
+---
+
+### **🎯 Why This Works for Zambia**  
+1. **Matches Local Loan Types**: Civil servant/plot loans are prioritized.  
+2. **Mobile-First**: 90% of transactions are mobile money.  
+3. **Investor Attraction**: Premium lenders can access funding easily.  
+
+Need wireframes or API specs for any module? Let me know! 🚀

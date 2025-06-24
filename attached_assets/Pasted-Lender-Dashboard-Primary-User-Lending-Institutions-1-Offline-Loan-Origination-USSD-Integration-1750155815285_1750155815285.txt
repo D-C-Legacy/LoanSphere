@@ -1,0 +1,84 @@
+Lender Dashboard (Primary User: Lending Institutions)
+1. Offline Loan Origination
+USSD Integration:
+
+Menu: *123*LOAN# → Apply/Repay without internet.
+
+Syncs to dashboard when online.
+
+WhatsApp Flow:
+
+Chatbot guides borrowers through application via WhatsApp (+26096...).
+
+2. AI Cash Flow Underwriting
+Mobile Money Analysis:
+
+Dashboard shows: "Borrower’s avg. daily Airtel Money income: K320".
+
+Auto-approval threshold setting ("Approve if >K200/day").
+
+3. Field Agent Toolkit
+AR Document Scan:
+
+In-app camera scans paper payslips → auto-extracts data.
+
+Cash Collection Map:
+
+Heatmap shows high-cash-availability zones (market days).
+
+📱 Borrower Dashboard (Mobile/USSD)
+1. Voice-Based KYC
+IVR System: Call 0800-LOANSPHERE → "Press 1 to verify your NRC".
+
+Dashboard Link: Voice-confirmed data appears in lender view.
+
+2. Chama (Group) Loans
+USSD Shortcode: *123*GROUP# → Check collective loan status.
+
+Dashboard View: Shows each member’s contribution timeline.
+
+💼 Investor Dashboard (Premium Feature)
+1. Crypto-Colateralization
+Stablecoin Investments:
+
+"Fund K50,000 in USDC → earn 15% APR in ZMW".
+
+Dashboard Metric: "Portfolio health: 98% repayments".
+
+2. Debt Swap Marketplace
+Bidding Interface:
+
+"Buy delinquent civil servant loans at 60% face value".
+
+🌾 Agri-Loan Module (Farmer Cooperatives)
+1. Harvest-Aligned Repayments
+Dashboard Setting: "Grace period: 3 months (until maize harvest)".
+
+USSD Alert: "Your loan repayment pauses until Dec 15".
+
+2. Embedded Weather Insurance
+Auto-Trigger:
+
+Dashboard shows: "Drought detected → insurance payout issued".
+
+👑 Tribal Leader Portal (Unique to Zambia)
+1. Borrower Vouching
+USSD Code: *123*CHIEF# → "Vouch for borrower #1234".
+
+Dashboard Impact: "Chief-approved loans: 20% lower default rate".
+
+🔐 Admin Dashboard (Super Admin Controls)
+1. Cross-Border Credit Passport
+Toggle: "Allow Zimbabwean lenders to view Zambian credit histories".
+
+2. Regulatory Sandbox
+Auto-Generated Reports:
+
+"Bank of Zambia capital adequacy ratio: 110%".
+
+Key Differentiators
+Role-Specific: Each feature ties to a dashboard/user type.
+
+Zambia-First: USSD, chiefs, Airtel/MTN, maize cycles.
+
+Investor-Ready: Crypto, debt trading, AI risk tools.

@@ -1,0 +1,67 @@
+All plans have the following features
+
+ Unlimited Branches
+Create multiple branches and switch to different branches in the same account.
+
+ Unlimited Borrowers/Clients
+Add unlimited borrowers, guarantors, investors, other income, expenses, files, comments, and custom fields.
+
+ Unlimited Repayments
+Add unlimited repayments made by borrowers. You can add individually, or upload thousands of payments via Excel/CSV file.
+
+ Staff Roles and Permissions
+Add staff and setup roles and permissions on what features your staff can access and the branches they can view in their accounts.
+
+ Borrower Login
+Setup a whitelabel solution and allow borrowers to login and view their loans, statements, repayments, and receipts.
+
+ Send Email
+Send emails to borrowers, guarantors, and investors individually or in bulk.
+
+ Send SMS
+Send SMS to borrowers, guarantors, and investors individually or in bulk.
+
+ Automated SMS/Email to Clients
+Send automated SMS and Emails to borrowers for various triggers such as adding loans, sending reminders before loan due dates, repayment confirmations, birthdays, monthly statements and more.
+
+ Collection Sheets
+Download collection sheets for loan officers, and edit loan schedules.
+
+ Payroll Management
+Add payroll for staff or unregistered staff. Download payslips and setup recurring payroll.
+
+ Charts and Reports
+View interactive charts and detailed reports such as arrears aging report, borrowers report, loans report, monthly report, at a glance report, PAR report, collector report, loan officer report, loan products report, outstanding report, and deferred income (projections).
+
+ Double Entry Accounting System
+Setup cash basis or accrual accounting. Add bank accounts. View cash flow, balance sheet, profit and loss, trial balance, general ledger, chart of accounts, and ledger accounts. Add chart of accounts and manual journal entries.
+
+ Calendar
+View loans due, paid, and maturing in a calendar format. Setup events.
+
+ Loan Products
+Setup loan products for branches and set restrictions and default values
+
+ Loan Fees
+Setup loan fees that are paid upfront or during the life of the loan.
+
+ Investors
+Add investors and setup automated interest in investor accounts. Add debit and credit transactions. Download statements. Transfer money from investor account to loan investment.
+
+ Generate Loan Agreements and Offer Letters
+Setup loan agreements and letters by putting your placeholders in the docx file. The system will replace the placeholders in the docx with data from the loan and generate a PDF.
+
+ Automatic Backups
+All data is backed up regularly to multiple locations around the world.
+
+ 24/7 support
+Contact us via email and we will respond within a few hours. Setup Zoom meetings for trainings and assistance. Start a live chat on Skype for emergency support.
+
+ Transfer existing data to Loandisk
+Transfer your existing data by using the bulk upload feature via Excel/CSV file. We can help you do the bulk upload.
+
+ No setup fee
+There is no setup fee. You only pay the monthly subscription.
+
+ Start free trial
+Start a free 30 day trial
