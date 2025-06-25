@@ -26,13 +26,17 @@ import { LenderSignup } from "./pages/LenderSignup";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import LenderDashboard from "./pages/LenderDashboard";
+import { AuthProvider } from "./hooks/useAuth";
 
 // Main routing component - landing page accessible without authentication
 const AppRouter = () => {
   return (
+    <AuthProvider>
     <Router>
       <Switch>
-        <Route path="/sign-in" component={ClerkSignIn} />
+        <Route path="/sign-in/:rest*" component={ClerkSignIn} />
+         <Route path="/sign-in" component={ClerkSignIn} />
+        <Route path="/sign-up/:rest*" component={ClerkSignUp} />
         <Route path="/sign-up" component={ClerkSignUp} />
         <Route path="/login" component={TemporaryLogin} />
         <Route path="/role-selector" component={ClerkRoleSelector} />
@@ -84,7 +88,9 @@ const AppRouter = () => {
         </Route>
         <Route component={NotFound} />
       </Switch>
+      
     </Router>
+    </AuthProvider>
   );
 };
 

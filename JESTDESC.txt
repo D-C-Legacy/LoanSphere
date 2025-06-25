@@ -1,0 +1,17 @@
+Packages:
+    # jest 
+    # ts-jest
+    # @types/jest
+    # jest-html-reporter --optional for reports
+    # jest-junit --optional for reports
+
+Test Modules:
+    - bcrypt
+    - jsonwebtoken
+    - zod
+    - date-fns
+    - clsx
+
+Estimated Time: 4 hours - (16:00)
+
+

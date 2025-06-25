@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="1" errors="0" time="51.374">
+  <testsuite name="undefined" errors="0" failures="0" skipped="2" timestamp="2025-06-25T14:40:33" time="27.907" tests="2">
+    <testcase classname=" Only Even Numbers" name=" Only Even Numbers" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname=" Only String" name=" Only String" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2025-06-25T14:40:34" time="46.4" tests="7">
+    <testcase classname=" Is Correct Password" name=" Is Correct Password" time="0.393">
+    </testcase>
+    <testcase classname=" Is User An Admin" name=" Is User An Admin" time="0.03">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+    at Object.&lt;anonymous&gt; (D:\upwork\LoanSphere-Connect-ko\modulesTest\modules.test.ts:11:42)
+    at Promise.then.completed (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\run.js:316:40)
+    at _runTest (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\run.js:126:9)
+    at run (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\upwork\LoanSphere-Connect-ko\node_modules\jest-runner\build\testWorker.js:106:12)</failure>
+    </testcase>
+    <testcase classname=" Is Valid User Schema" name=" Is Valid User Schema" time="0.008">
+    </testcase>
+    <testcase classname=" Is Valid User Birthdate" name=" Is Valid User Birthdate" time="0.003">
+    </testcase>
+    <testcase classname=" Button Class Color: primary" name=" Button Class Color: primary" time="0.002">
+    </testcase>
+    <testcase classname=" Button Class Color: secondary" name=" Button Class Color: secondary" time="0.001">
+    </testcase>
+    <testcase classname=" Button Class Color: tertiary" name=" Button Class Color: tertiary" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
